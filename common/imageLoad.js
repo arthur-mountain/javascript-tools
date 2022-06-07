@@ -4,28 +4,32 @@
  * @return {Promise} return image promise
  */
 function imageLoad(imgUrl) {
+  const img = new Image();
+  img.src = imgUrl;
+
   return new Promise((resolve, reject) => {
-    const img = new Image();
-
-    img.onload = (target) => {
-      resolve(target);
+    if (img.complete) {
+      resolve(img);
+    } else {
+      img.onload = (result) => resolve(result)
+      img.onerror = (error) => reject(error)
     }
-
-    img.onerror = function () {
-      reject(`this image url is error: ${src}`);
-    }
-
-    img.src = imgUrl;
   })
 }
 
 /**
  * @param {Array} imgUrls image url array
  * @description load muitiple image
- * @return {Promise} return image array
+ * @return {Promise} return all promise image array
  */
 function imagesLoad(imgUrls) {
   const imgPromises = imgUrls.map(url => loadImage(url))
 
   return Promise.all(imgPromises)
+  // return new Promise((resolve, reject) => {
+  //   Promise
+  //     .all(imgPromises)
+  //     .then(imgs => resolve(imgs))
+  //     .catch(error => reject(error))
+  // })
 }

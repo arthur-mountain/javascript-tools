@@ -1,0 +1,14 @@
+{
+  "name": "javascript-tools",
+  "version": "1.0.0",
+  "description": "javascript utils tool",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "frontend",
+    "utils",
+    "javascript"
+  ],
+  "author": "arthur-mountain",
+  "license": "MIT"
+}

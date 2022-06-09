@@ -3,7 +3,7 @@
  * @description load single image
  * @return {Promise} return image promise
  */
-function imageLoad(imgUrl) {
+export function imageLoad(imgUrl) {
   const img = new Image();
   img.src = imgUrl;
 
@@ -22,7 +22,7 @@ function imageLoad(imgUrl) {
  * @description load muitiple image
  * @return {Promise} return all promise image array
  */
-function imagesLoad(imgUrls) {
+export function imagesLoad(imgUrls) {
   const imgPromises = imgUrls.map(url => loadImage(url))
 
   return Promise.all(imgPromises)

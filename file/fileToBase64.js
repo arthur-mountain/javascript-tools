@@ -4,8 +4,9 @@ function fileToBase64(file) {
 
   return new Promise((resolve, reject) => {
     reader.onload = (e) => resolve(e.target.result);
-    reader.onerror = reject
-  })
-};
+    reader.onerror = reject;
+  });
+}
 
-export default fileToBase64;
+export { fileToBase64 };
+
